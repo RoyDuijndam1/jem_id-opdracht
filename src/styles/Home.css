@@ -1,0 +1,23 @@
+.home {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.home__filter{
+    width: 200px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.home__cardHolder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.home__radio {
+    display: flex;
+    flex-direction: column;
+
+}
