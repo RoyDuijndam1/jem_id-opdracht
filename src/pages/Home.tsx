@@ -9,13 +9,37 @@ const Home = () => {
     const [standingPlaceFilters, setStandingPlaceFilter] = useState<Record<string, boolean>>({})
 
     useEffect(() => {
-        let query = "";
-        setQuery(query)
-    }, [nameField])
+        let query = new URLSearchParams(filters).toString();
+        const standingPlaceFilterQuery = Object.entries(standingPlaceFilters)
+            .filter(([_, value]) => value)
+            .map(([key, value]) => `standingPlaceFilters=${key}`).join('&');
 
-    useEffect( () => {
-        (async () => setProducts(await ProductApi.get(10, 0)))()
-    }, [query])
+        if (query === '') {
+            query = standingPlaceFilterQuery
+        } else {
+            query = `${query}&${standingPlaceFilterQuery}`;
+        }
+
+        (async () => setProducts(await ProductApi.get(10, 0, query)))()
+    }, [filters, standingPlaceFilters])
+
+    const changeQuery = (event: ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = event.target;
+        setFilters(prevState => {
+            const filters = {...prevState};
+
+            if(value === "") {
+                delete filters[name];
+                return filters
+            }
+            return {...filters, [name]: value}
+        })
+    }
+
+    const addStandingPlaceFilters = (event: ChangeEvent<HTMLInputElement>) => {
+        const {value, checked} = event.target;
+        setStandingPlaceFilter(prevState => ({ ...prevState, [value]: checked }));
+    }
 
     return(
         <div className={"home"}>
