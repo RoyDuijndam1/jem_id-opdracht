@@ -11,7 +11,11 @@ export async function get(pageSize: number, pageIndex: number) {
 }
 
 export async function getSingle(id: number) {
-    return fetch(`${url}/${id}`)
-        .then(response => response.json())
-        .then(data => data)
+    try{
+        return fetch(`${url}/${id}`)
+            .then(response => response.json())
+            .then(data => data as product)
+    } catch (error) {
+        console.log(error);
+    }
 }
