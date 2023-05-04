@@ -1,0 +1,10 @@
+.navbar {
+    padding: 10px;
+    overflow: hidden;
+    background-color: #009933;
+    list-style-type: none;
+}
+
+.navbar__listItem {
+    color: black
+}
