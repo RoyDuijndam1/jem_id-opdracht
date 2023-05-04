@@ -1,0 +1,28 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    text-align: center;
+    width: 20%;
+    text-decoration: none;
+    color: black;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+.card__image {
+    width: 100%;
+}
+
+.card__title {
+
+}
+
+.card__listItem {
+    list-style-type: none;
+    text-align: left;
+}
