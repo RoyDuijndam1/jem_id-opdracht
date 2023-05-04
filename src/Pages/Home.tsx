@@ -4,7 +4,7 @@ import Product from "../Classes/Product";
 import * as ProductApi from "../Connections/ProductApi"
 
 const Home = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState<Product[]>([])
     const [query, setQuery] = useState("")
     const [nameField, setNameField] = useState("")
 
