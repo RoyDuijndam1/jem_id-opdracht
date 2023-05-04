@@ -1,13 +1,12 @@
-class Product{
-    constructor(public name: string,
-                public description: string,
-                public price: number,
-                public height: number,
-                public diameter: number,
-                public standingPlace: string,
-                public wateringNeeds: string,
-                public photoUrl: string) {
-    }
+type Product = {
+    name: string
+    description: string
+    price: number
+    height: number
+    diameter: number
+    standingPlace: string
+    wateringNeeds: string
+    photoUrl: string
 }
 
 export default Product;
