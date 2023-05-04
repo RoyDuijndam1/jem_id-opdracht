@@ -1,7 +1,8 @@
-import {useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import Card from "../components/Card";
 import Product from "../Classes/Product";
 import * as ProductApi from "../Connections/ProductApi"
+import "../styles/Home.css"
 
 const Home = () => {
     const [products, setProducts] = useState<Product[]>([])
