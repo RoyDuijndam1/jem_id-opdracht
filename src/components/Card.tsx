@@ -1,11 +1,14 @@
+import React from "react";
+import {Link} from "react-router-dom";
 import Product from "../Classes/Product";
+import '../styles/Card.css';
 
 const Card = ({ product } : {product: Product}) => {
     return (
-        <div className={"card"}>
+        <Link to={`product/${product.id}`} className={"card"}>
             <img className={"card__image"} src={product.photoUrl} alt={product.name}/>
             <div>
-                <h5 className={"card__title"}>{product.name}</h5>
+                <h3 className={"card__title"}>{product.name}</h3>
                 <ul>
                     <li className={"card__listItem"}>hoogte: {product.height}</li>
                     <li className={"card__listItem"}>diameter: {product.diameter}</li>
@@ -13,10 +16,8 @@ const Card = ({ product } : {product: Product}) => {
                     <li className={"card__listItem"}>standplaats: {product.standingPlace}</li>
                 </ul>
             </div>
-        </div>
+        </Link>
     )
 }
-
-
 
 export default Card ;
