@@ -7,7 +7,7 @@ const Navbar = () =>
         <ul className={"navbar"}>
             <li><NavLink to={"/"} className={"navbar__listItem"}>Products</NavLink></li>
         </ul>
-        <section>
+        <section className={"content"}>
             <Outlet />
         </section>
     </main>;
