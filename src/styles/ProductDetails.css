@@ -1,10 +1,18 @@
 .productDetails {
-    display: flex
+    display: flex;
+    max-width: 1200px;
+    margin-top: 10px;
 }
 
 .productDetails__right {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px
+    padding: 10px;
+}
+
+@media (max-width: 800px) {
+    .productDetails {
+        flex-direction: column;
+    }
 }
