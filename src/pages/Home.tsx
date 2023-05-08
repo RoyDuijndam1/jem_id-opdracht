@@ -9,11 +9,13 @@ const Home = () => {
     const [filters, setFilters] = useState<Record<string, string>>({})
     const [standingPlaceFilters, setStandingPlaceFilter] = useState<Record<string, boolean>>({})
 
+    //creates a query with the different filters that were set. If the standingplace filter is set parse them into a
+    //and add them to query string. if the query string is empty only execute the standingplacefilter
     useEffect(() => {
         let query = new URLSearchParams(filters).toString();
         const standingPlaceFilterQuery = Object.entries(standingPlaceFilters)
             .filter(([_, value]) => value)
-            .map(([key, value]) => `standingPlaceFilters=${key}`).join('&');
+            .map(([key, _]) => `standingPlaceFilters=${key}`).join('&');
 
         if (query === '') {
             query = standingPlaceFilterQuery
@@ -24,6 +26,7 @@ const Home = () => {
         (async () => setProducts(await ProductApi.get(10, 0, query)))()
     }, [filters, standingPlaceFilters])
 
+    //this changes the filters. It adds and removes filters from the filters variable
     const changeQuery = (event: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         setFilters(prevState => {
