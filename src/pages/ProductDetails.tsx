@@ -5,12 +5,11 @@ import Product from "../Classes/Product";
 import '../styles/ProductDetails.css';
 
 const ProductDetails = () => {
-    const { id } = useParams();
+    const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product>()
 
     useEffect(() => {
-        // TODO: Check if valid number
-        if (!id) return;
+        if (id === undefined || isNaN(Number(id))) return;
 
         (async () => setProduct(await ProductApi.getSingle(parseInt(id))))()
     }, [id]);
