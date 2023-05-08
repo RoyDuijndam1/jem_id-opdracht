@@ -1,4 +1,6 @@
-const url = "https://jemid-warmupapi.azurewebsites.net/api/products"
+import product from "../Classes/Product";
+
+const url = `${process.env.REACT_APP_PRODUCT_API}/products`
 
 export async function get(pageSize: number, pageIndex: number, query: string) {
     try{
